@@ -8,11 +8,15 @@ dbBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         let txt = document.createElement('p');
         txt.textContent = btn.textContent;
-        fillNum(txt.textContent);
+        if (!(txt.textContent == Number(txt.textContent) || txt.textContent == '.')) {
+            return;
+        } else {
+            fillNum(txt.textContent);
+        }
+        console.log(x)
         display.appendChild(txt);
     });
 })
-
 
 function add(a,b) {
     return a+b;
@@ -46,9 +50,9 @@ function operate(op,n1,n2) {
 }
 
 function fillNum(n) {
-    if (n == Number(n)) {
-    x+=n;
+    if (!(n == Number(n) || n == '.')) {
+        return;
+    } else {
+        x+=n;
     }
 }
-
-
