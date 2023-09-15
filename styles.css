@@ -20,6 +20,7 @@
 body {
     font-size: 1.2em;
     display: flex;
+    background-color: #f9f03a;
     flex-direction: column;
     padding: 20px;
     min-height: 100vh;
@@ -34,6 +35,8 @@ body {
 }
 
 .box {
+    background-color: #0a0616;
+    border-radius: 10px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -47,6 +50,7 @@ body {
 }
 
 .screen {
+    background-color: #331650;
     box-sizing: border-box;
     height: 145px;  
     border: 1px solid black;
@@ -61,20 +65,40 @@ body {
 }
 
 .btn {
-    font-size: 30px;
+    color: white;
+    border-radius: 10px;
+    font-size: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: calc(420px / 4);
     height: calc(420px / 5);
     aspect-ratio: 1;
+    background-color: #281141;
     border: 1px solid black;
     box-sizing: border-box;
+}
+
+.btn:hover {
+    font-size: 30px;
+    background-color: rgba(255,255,255,0.2);
 }
 
 .eql {
     flex: 1;
 }
 
+.eql:hover {
+    background-color: rgb(73, 255, 73,0.8);
+}
+
+.clr:hover {
+    background-color: rgb(255, 53, 53);
+}
+
+.optr:hover {
+    background-color: rgb(249, 240, 58,0.8);
+
+}
 
 
