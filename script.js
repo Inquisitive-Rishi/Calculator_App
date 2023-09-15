@@ -28,5 +28,3 @@ function operate(op,n1,n2) {
 
     return result;
 }
-
-console.log(operate('&',100,3));
