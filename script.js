@@ -8,10 +8,11 @@ dbBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         let txt = document.createElement('p');
         txt.textContent = btn.textContent;
-        txt.style.color = 'white';
+        fillNum(txt.textContent);
         display.appendChild(txt);
     });
 })
+
 
 function add(a,b) {
     return a+b;
@@ -45,7 +46,9 @@ function operate(op,n1,n2) {
 }
 
 function fillNum(n) {
+    if (n == Number(n)) {
     x+=n;
+    }
 }
 
 

@@ -52,6 +52,7 @@ body {
 
 .screen {
     display: flex;
+    color: white;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: flex-end;
