@@ -14,6 +14,7 @@
 }
 
 .sub-tl {
+    font-size: 1.2em;
     padding: 10px;
 }
 
@@ -50,6 +51,12 @@ body {
 }
 
 .screen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 50px;
+    font-weight: 10;
     background-color: #331650;
     box-sizing: border-box;
     height: 145px;  

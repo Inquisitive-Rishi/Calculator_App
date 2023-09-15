@@ -1,3 +1,18 @@
+let x = '';
+
+const display = document.querySelector('.screen');
+const dbBtn = document.querySelectorAll('#db');
+
+// buttons to be displayed on screen.
+dbBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        let txt = document.createElement('p');
+        txt.textContent = btn.textContent;
+        txt.style.color = 'white';
+        display.appendChild(txt);
+    });
+})
+
 function add(a,b) {
     return a+b;
 }
@@ -28,3 +43,9 @@ function operate(op,n1,n2) {
 
     return result;
 }
+
+function fillNum(n) {
+    x+=n;
+}
+
+
