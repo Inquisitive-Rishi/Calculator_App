@@ -2,19 +2,20 @@ let x = '';
 
 const display = document.querySelector('.screen');
 const dbBtn = document.querySelectorAll('#db');
-
+console.log(dbBtn);
 // buttons to be displayed on screen.
 dbBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         let txt = document.createElement('p');
         txt.textContent = btn.textContent;
+        display.appendChild(txt);
+        // save to variables (only numbers and '.');
         if (!(txt.textContent == Number(txt.textContent) || txt.textContent == '.')) {
             return;
         } else {
             fillNum(txt.textContent);
         }
         console.log(x)
-        display.appendChild(txt);
     });
 })
 
