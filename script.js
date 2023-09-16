@@ -1,27 +1,26 @@
 let n1 = '';
 let op = '';
 let n2 = '';
-let result;
+let res = '';
 
 const display = document.querySelector('.screen');
 const dbBtn = document.querySelectorAll('#db');
 const eqlBtn = document.querySelector('.eql');
 // console.log(dbBtn);
-
+                                        
 // buttons to be displayed on screen.
 dbBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         let txt = document.createElement('p');
         txt.textContent = btn.textContent;
         display.appendChild(txt);
-    });
-})
 
-// Add to variable x
-dbBtn.forEach((btn) => {
-    btn.addEventListener('click', ()=> {
+
+        // add values to variable.
         if (!(btn.textContent == Number(btn.textContent) || btn.textContent == '.')) {
-            op+=btn.textContent;
+            if (op == '') {
+                op+=btn.textContent;
+            }
         } else {
             if (!(op.length > 0)) {
                 addToN1(btn.textContent);
@@ -29,14 +28,21 @@ dbBtn.forEach((btn) => {
                 addToN2(btn.textContent);
             }
         }
-        console.log(n1)
-        console.log(op)
-        console.log(n2)
     });
+})
+
+eqlBtn.addEventListener('click',()=> {
+    while (display.firstChild) {
+        display.lastChild.remove();
+    }
+    res = operate(op,n1,n2);
+    const dsplRslt = document.createElement('p');
+    console.log(res)
 });
 
+
 function add(a,b) {
-    return a+b;
+    return Number(a)+ Number(b);
 }
 
 function substract(a,b) {
@@ -48,7 +54,7 @@ function multiply(a,b) {
 }
 
 function divide(a,b) {
-    return a/b;
+    return (!(b === 0)) ? a/b : `not a valid divisor.`;
 }
 
 // 3 placeholder for a single operation. (a number, an operator, another number)
@@ -62,6 +68,8 @@ function operate(op,n1,n2) {
 
     return result;
 }
+
+// Add to variables
 
 function addToN1(n) {
     if (!(n == Number(n) || n == '.')) {
