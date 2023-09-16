@@ -28,18 +28,34 @@ dbBtn.forEach((btn) => {
                 addToN2(btn.textContent);
             }
         }
+        // console.log(n1)
+        // console.log(op)
+        // console.log(n2)
     });
 })
 
-eqlBtn.addEventListener('click',()=> {
-    while (display.firstChild) {
+function remDspl() {
+     while (display.firstChild) {
         display.lastChild.remove();
     }
+}
+
+eqlBtn.addEventListener('click',()=> {
+    remDspl();
     res = operate(op,n1,n2);
     const dsplRslt = document.createElement('p');
+    dsplRslt.textContent = res;
+    display.appendChild(dsplRslt);
     console.log(res)
 });
 
+// backspace key event
+
+const bksp = document.querySelector('.bksps');
+
+bksp.addEventListener('click', ()=> {
+    display.lastChild.remove();
+})
 
 function add(a,b) {
     return Number(a)+ Number(b);
@@ -55,6 +71,10 @@ function multiply(a,b) {
 
 function divide(a,b) {
     return (!(b === 0)) ? a/b : `not a valid divisor.`;
+}
+
+function power(a,b) {
+    return Math.pow(a,b);
 }
 
 // 3 placeholder for a single operation. (a number, an operator, another number)
@@ -86,3 +106,4 @@ function addToN2(n) {
         n2+=n;
     }
 }
+
