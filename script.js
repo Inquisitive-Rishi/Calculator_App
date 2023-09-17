@@ -21,7 +21,14 @@ dbBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         let txt = document.createElement('p');
         txt.textContent = btn.textContent;
-        
+
+        // Do not repeat operators
+        if ((!res) && op && (txt.textContent == '÷' || txt.textContent == '^' 
+        || txt.textContent == '+' || txt.textContent == '-' 
+        || txt.textContent == 'x')) {
+            return;
+        }
+
         display.appendChild(txt);
 
         // add values to variable.
@@ -38,6 +45,7 @@ dbBtn.forEach((btn) => {
         }
             console.log(a1);
             console.log(a2);
+            console.log(op);
     });
 })
 
@@ -57,10 +65,11 @@ eqlBtn.addEventListener('click',()=> {
     dsplRslt.textContent = res;
     display.appendChild(dsplRslt);
     console.log(res)
-});
+}); 
 
 optBtn.forEach(btn => {
     btn.addEventListener('click', ()=> {
+     
         if (res) {
             while (a1.length > 0 || a2.length > 0) {
                 a1.pop();
@@ -77,7 +86,6 @@ optBtn.forEach(btn => {
             console.log('a2 '+a2)
             console.log(op);
             console.log('res'+ res)
-            return a1,a2,n1,n2;
         }
     })
 });
