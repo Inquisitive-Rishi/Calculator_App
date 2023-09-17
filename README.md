@@ -15,5 +15,6 @@ Current iteration:
 
 Future iteration:
 - will include BODMAS rule and you can chain multiple operations.
+- Keyboard support
 
 Note: Result has been capped to 15 digits to prevent screen overflow.
