@@ -13,8 +13,7 @@ const bksp = document.querySelector('.bksps');
 const clrBtn = document.querySelector('.clr');
 const optBtn = document.querySelectorAll('.optr');
 
-
-
+  
 // console.log(dbBtn);
                                         
 // buttons to be displayed on screen.
@@ -22,7 +21,7 @@ dbBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         let txt = document.createElement('p');
         txt.textContent = btn.textContent;
-     
+        
         display.appendChild(txt);
 
         // add values to variable.
@@ -66,13 +65,21 @@ optBtn.forEach(btn => {
             n1 = res;
         }
     })
-})
+});
+
 
 // backspace key event
 
 
 bksp.addEventListener('click', ()=> {
     display.lastChild.remove();
+    if (op == '') {
+        a1.pop();
+        return a1;
+    } else {
+        a2.pop();
+        return a2;
+    }
 })
 
 // Clear Numbers:
