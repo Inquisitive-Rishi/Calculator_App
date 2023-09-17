@@ -62,22 +62,38 @@ eqlBtn.addEventListener('click',()=> {
 optBtn.forEach(btn => {
     btn.addEventListener('click', ()=> {
         if (res) {
-            n1 = res;
+            while (a1.length > 0 || a2.length > 0) {
+                a1.pop();
+                a2.pop();
+            }
+            a1.push(res);
+            op = btn.textContent;
+            res = '';
+            n1 = '';    
+            n2 = '';
+            console.log('n1 '+n1)
+            console.log('n2 '+n2)
+            console.log('a1 '+a1)
+            console.log('a2 '+a2)
+            console.log(op);
+            console.log('res'+ res)
+            return a1,a2,n1,n2;
         }
     })
 });
 
 
-// backspace key event
-
+// backspace removes last element from array.
 
 bksp.addEventListener('click', ()=> {
     display.lastChild.remove();
     if (op == '') {
         a1.pop();
+        console.log(a1);
         return a1;
     } else {
         a2.pop();
+        console.log(a2);
         return a2;
     }
 })
