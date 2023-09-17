@@ -5,6 +5,7 @@ let n1 = '';
 let op = '';
 let n2 = '';
 let res = '';
+let strRes = ''; // Used only when length of res > 15.
 
 const display = document.querySelector('.screen');
 const dbBtn = document.querySelectorAll('#db');
@@ -13,8 +14,6 @@ const bksp = document.querySelector('.bksps');
 const clrBtn = document.querySelector('.clr');
 const optBtn = document.querySelectorAll('.optr');
 
-  
-// console.log(dbBtn);
                                         
 // buttons to be displayed on screen.
 dbBtn.forEach((btn) => {
@@ -62,9 +61,17 @@ eqlBtn.addEventListener('click',()=> {
     n2 = a2.join("");
     res = operate(op,n1,n2);
     const dsplRslt = document.createElement('p');
-    dsplRslt.textContent = res;
-    display.appendChild(dsplRslt);
-    console.log(res)
+
+    
+    // prevent result to overflow screen.
+    if (res.toString().length > 15) {
+        strRes = res.toString().slice(0,16);
+        dsplRslt.textContent = strRes;
+        display.appendChild(dsplRslt);
+    } else {
+        dsplRslt.textContent = res;
+        display.appendChild(dsplRslt);
+    }
 }); 
 
 optBtn.forEach(btn => {
@@ -92,7 +99,6 @@ optBtn.forEach(btn => {
 
 
 // backspace removes last element from array.
-
 bksp.addEventListener('click', ()=> {
     display.lastChild.remove();
     if (op == '') {
@@ -107,12 +113,9 @@ bksp.addEventListener('click', ()=> {
 })
 
 // Clear Numbers:
-
 clrBtn.addEventListener('click',()=>window.location.reload())
 
-
 // Calculate functions:
-
 function add(a,b) {
     return Number(a) + Number(b);
 }
@@ -138,7 +141,6 @@ function prct(n1) {
 }
 
 // 3 placeholder for a single operation. (a number, an operator, another number)
-
 function operate(op,n1,n2) {
     let result = (op == '+') ? add(n1,n2) :
     (op == '^') ? Math.pow(n1,n2) :
@@ -151,7 +153,6 @@ function operate(op,n1,n2) {
 }
 
 // Add to variables
-
 function addToA1(n) {
     if (!(n == Number(n) || n == '.')) {
         return;
@@ -163,7 +164,6 @@ function addToA1(n) {
         }
     }
 }
-
 
 function addToA2(n) {
     if (!(n == Number(n) || n == '.')) {
