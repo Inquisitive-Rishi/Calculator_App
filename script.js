@@ -22,10 +22,7 @@ dbBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         let txt = document.createElement('p');
         txt.textContent = btn.textContent;
-        if ((a1.includes('.') && a2.includes('.')) && txt.textContent == '.') {
-            return;
-        }
-
+     
         display.appendChild(txt);
 
         // add values to variable.
@@ -128,7 +125,7 @@ function addToA1(n) {
     if (!(n == Number(n) || n == '.')) {
         return;
     } else {
-        if (('.') in a1 && n == '.') {
+        if (a1.includes('.') && n == '.') {
             return;
         } else {
             a1.push(n);
@@ -141,11 +138,10 @@ function addToA2(n) {
     if (!(n == Number(n) || n == '.')) {
         return;
     } else {
-        if (('.') in a2 && n == '.') {
+        if (a2.includes('.') && n == '.') {
             return;
         } else {
             a2.push(n);
         }
     }
 }
-
