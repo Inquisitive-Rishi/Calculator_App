@@ -110,8 +110,6 @@ body {
 
 }
 
-.footer div {
-    font-weight: 700;
+.ftr-txt {
+    font-weight: bold;
 }
-
-
